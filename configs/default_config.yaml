@@ -1,0 +1,48 @@
+# Model Configuration
+model:
+  speech_input_dim: 128
+  text_model_name: "bert-base-uncased"
+  hidden_dim: 256
+  num_classes: 1
+  dropout: 0.3
+
+# Training Configuration  
+training:
+  learning_rate: 2e-5
+  weight_decay: 0.01
+  batch_size: 32
+  num_epochs: 50
+  early_stopping_patience: 10
+  gradient_clip_norm: 1.0
+
+# Data Configuration
+data:
+  speech_sample_rate: 16000
+  text_max_length: 512
+  normalize_features: true
+  test_size: 0.2
+  val_size: 0.1
+  stratify: true
+  apply_augmentation: false
+  num_workers: 0
+
+# Paths Configuration
+paths:
+  model_save_dir: "models"
+  log_dir: "logs" 
+  cache_dir: "cache"
+  results_dir: "results"
+
+# Explainability Configuration
+explainability:
+  enable_shap: true
+  enable_lime: true
+  enable_attention: true
+  max_explanation_samples: 100
+
+# Interface Configuration
+interface:
+  port: 8501
+  enable_audio_recording: false
+  max_audio_length: 30  # seconds
+  supported_audio_formats: ["wav", "mp3", "m4a"]
